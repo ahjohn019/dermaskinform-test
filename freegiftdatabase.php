@@ -1,7 +1,16 @@
 <?php
     session_start();
-    $conn = new mysqli('localhost','root','', 'freegift_form') or die("Unable To Connect");
 
+    $conn = new mysqli('remotemysql.com','z3UPYAictr','5zZxKj7wNZ','z3UPYAictr') or die("Unable To Connect");
+
+    // Check connection
+    // if ($conn->connect_error) {
+    //     die("Connection failed: " . $conn->connect_error);
+    // }
+    // echo "Connected successfully";
+
+    // $conn = new mysqli('localhost','root','', 'freegift_form') or die("Unable To Connect");
+    
     if(isset($_POST['save']) ){
         $firstname = $_POST['first_name'];
         $lastname = $_POST['last_name'];
@@ -20,8 +29,7 @@
         } else {
             //Display false messages if failed
             $_SESSION['error'] = 'Please Try Again !';
-            header("location: freegift_form.php");
-            
+            header("location: freegift_form.php");    
         }  
     }
 
