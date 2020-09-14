@@ -58,11 +58,11 @@
         //insert sql file to db
         $sql = "INSERT INTO 
         freegift_form (first_name, last_name, gender, dateofbirth, 
-        phonenumber, email, address_line_one, address_line_two,
-        city, states, postcode, countries, inst_acc_name, attachment_name, attachment)
+        phonenumber, email, address_line_one, address_line_two, 
+        states, postcode, countries, inst_acc_name)
         VALUES ('$firstname','$lastname','$gender','$dateofbirth','$phonenumber','$email',
-        '$address_line_one','$address_line_two','$city','$states','$postcode',
-        '$countries','$inst_acc_name','$attachment_name','$attachfile')";
+        '$address_line_one','$address_line_two','$states','$postcode',
+        '$countries','$inst_acc_name')";
 
         //select data from db
         // $selectsql = "SELECT * FROM freegift_form WHERE email='$email'";
