@@ -2,10 +2,10 @@
     session_start();
 
     //live server
-    // $conn = new mysqli('remotemysql.com','z3UPYAictr','5zZxKj7wNZ','z3UPYAictr') or die("Unable To Connect");
+    $conn = new mysqli('remotemysql.com','z3UPYAictr','5zZxKj7wNZ','z3UPYAictr') or die("Unable To Connect");
 
     //test server
-    $conn = new mysqli('localhost','root','', 'freegift_form') or die("Unable To Connect");
+    // $conn = new mysqli('localhost','root','', 'freegift_form') or die("Unable To Connect");
 
     // Check connection
     if ($conn->connect_error) {
