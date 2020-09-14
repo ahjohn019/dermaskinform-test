@@ -30,9 +30,9 @@
 
   <!--Put Background Banner Here-->
   <div class="banner-header">
-      <img src="static/assets/banner-heliocare.jpg" alt="" />
+      <img src="static/assets/banner-heliocare.jpg" alt="" class="img-class"/>
   </div>
-  
+
   <!--Title text here-->
   <div class="dermaskin-form">
     <div class="dermaskin-form-box">
