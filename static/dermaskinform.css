@@ -29,7 +29,6 @@ body{
     text-align:center;
     border:1px;
     color: black;
-    font-size:30px;
 }
 
 .select-product-header {
@@ -43,6 +42,7 @@ body{
 .img-class{
     width:100%;
     height:auto;
+    background-size:cover;
 }
 
 .terms-conditions{
