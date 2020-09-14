@@ -28,10 +28,40 @@
     <div class="alert alert-success">Submitted Successfully!!</div>
   <?php unset($_SESSION['success']); } ?>
 
-  <!--Put Background Image Here-->
+  <!--Put Background Banner Here-->
+  <div class="banner-header">
+      <img src="static/assets/banner-heliocare.jpg" alt="" />
+  </div>
+  
+  <!--Title text here-->
+  <div class="dermaskin-form">
+    <div class="dermaskin-form-box">
+      <h3>Follow us NOW to redeem your FREE samples!</h3>
+      <p style="text-decoration: underline; font-size:20px;">2 simple steps to redeem!</p>
+      <p>1. Follow our Instagram accounts:</p>
+      <p>@dermaskinshopmy: <a href="https://www.instagram.com/dermaskinshopmy/">https://www.instagram.com/dermaskinshopmy/</a></p>
+      <p>@heliocaremy: <a href="https://www.instagram.com/heliocaremy/">https://www.instagram.com/heliocaremy/</a></p>
+      <p class="custom-paragraph"><strong>Both accounts have to be followed to be entitled for the free samples!</strong></p>
+      <p>2. Fill in the details below and you are done!</p>
+      
+      <span class="custom-paragraph"><span>**</span><strong>while stock last</strong><br /></span>
+      <span class="custom-paragraph"><span>**</span><strong>only applicable for NEW Dermaskinshop customers</strong></span>
+      
+    </div>
+  </div> 
+  
+  <div class="select-product-header">
+    <h4><strong>PLEASE SELECT THE SAMPLE PRODUCT YOU WOULD LIKE TO RECEIVE</strong></h4>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="sampleProduct1" id="sampleProduct1" value="option1" checked>
+      <label class="form-check-label" for="sampleProduct1">
+        <strong>Heliocare Oral 2caps Sachet and Heliocare XF Gel SPF50 5ml (2 sets)</strong>
+      </label>
+    </div>
+  </div>
 
-  <h1>Free Gift Form</h1>
   <form method="post" action="freegiftdatabase.php" enctype="multipart/form-data">
+    <h4>Part 1: Basic Information</h4>
     <div class="form-group">
         <label for="text">Instagram Account Name : </label>
         <input type="text" class="form-control" id="inst_acc_name" name="inst_acc_name" required>
@@ -70,7 +100,7 @@
         <label for="email">Email : </label>
         <input type="email" class="form-control" id="email" name="email" required>
     </div>
-
+    <h4>Part 2: Where should we deliver your sample?</h4>
     <div class="form-group">
           <label for="text">Address Line 1 :</label>
           <input type="text" class="form-control" id="addr1" name="addr1" required>
@@ -94,6 +124,17 @@
     <div class="form-group">
         <label for="text">PostCode :</label>
         <input type="text" class="form-control" id="postcode" name="postcode">
+    </div>
+
+    <h4>Part 3. Term And Conditions</h4>
+    <div class="terms-conditions">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="termconditions">
+        <label class="form-check-label" for="termconditions">
+          <strong>Agree to terms and conditions</strong>
+        </label>
+        <p>I agree to the processing of my personal data in accordance with <a href="https://dermaskinshop.com.my/privacy-policy">Privacy policy</a>.</p>
+      </div>
     </div>
     
     <button type="submit" class="btn btn-primary" name="save">Submit</button>

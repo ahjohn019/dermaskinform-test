@@ -3,3 +3,49 @@
     color:#e60000;
 }
 
+.dermaskin-form{
+    padding-left:15px;
+    box-shadow: 3px 3px 5px 6px #ccc;
+    border:1px;
+    padding-top: 10px;
+}
+
+.dermaskin-form-box{
+    padding-top:10px;
+    padding-bottom:10px;
+}
+
+.banner-header{
+    padding:60px;
+    text-align:center;
+    border:1px;
+    color: black;
+    font-size:30px;
+}
+
+.select-product-header {
+    text-align:left;
+    border:1px;
+    font-size:15px;
+    padding-top:30px;
+    padding-bottom:30px;
+}
+
+.img{
+    width:100%;
+    height:auto;
+}
+
+.terms-conditions{
+    padding-top:15px;
+    padding-bottom:15px;
+}
+
+.custom-paragraph{
+    font-style: italic;
+    font-size:10px;
+}
+
+
+
+
