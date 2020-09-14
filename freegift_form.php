@@ -30,7 +30,7 @@
 
   <!--Put Background Banner Here-->
   <div class="banner-header">
-      <img src="static/assets/banner-heliocare.jpg" alt="" class="img-class"/>
+      <img src="static/assets/banner-heliocare-final.jpg" alt="" class="img-class"/>
   </div>
 
   <!--Title text here-->
@@ -126,7 +126,6 @@
         <input type="text" class="form-control" id="postcode" name="postcode">
     </div>
 
-    <h4>Part 3. Term And Conditions</h4>
     <div class="terms-conditions">
       <div class="form-check">
         <input class="form-check-input" type="checkbox" value="" id="termconditions">
