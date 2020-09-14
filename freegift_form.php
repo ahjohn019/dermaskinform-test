@@ -34,17 +34,17 @@
   <form method="post" action="freegiftdatabase.php" enctype="multipart/form-data">
     <div class="form-group">
         <label for="text">Instagram Account Name : </label>
-        <input type="text" class="form-control" id="inst_acc_name" placeholder="Enter Your Instagram Account" name="inst_acc_name" required>
+        <input type="text" class="form-control" id="inst_acc_name" name="inst_acc_name" required>
     </div>
 
     <div class="form-group">
       <label for="text">First Name :</label>
-      <input type="text" class="form-control" id="first_name" placeholder="Enter First Name" name="first_name" required>
+      <input type="text" class="form-control" id="first_name" name="first_name" required>
     </div>
 
     <div class="form-group">
       <label for="text">Last Name :</label>
-      <input type="text" class="form-control" id="last_name" placeholder="Enter Last Name" name="last_name" required>
+      <input type="text" class="form-control" id="last_name" name="last_name" required>
     </div>
 
     <div class="form-group">
@@ -58,42 +58,42 @@
 
     <div class="form-group">
         <label for="text">Date Of Birth :</label>
-        <input type="text" class="form-control" id="dateofbirth" placeholder="Enter Date Of Birth" name="dateofbirth" required>
+        <input type="text" class="form-control" id="dateofbirth" name="dateofbirth" required>
     </div>
 
     <div class="form-group">
         <label for="text">Phone Number :</label>
-        <input type="text" class="form-control" id="phonenumber" placeholder="Enter Phone Number" name="phonenumber" required>
+        <input type="text" class="form-control" id="phonenumber" name="phonenumber" required>
     </div>
 
     <div class="form-group">
         <label for="email">Email : </label>
-        <input type="email" class="form-control" id="email" placeholder="Enter Your Email" name="email" required>
+        <input type="email" class="form-control" id="email" name="email" required>
     </div>
 
     <div class="form-group">
           <label for="text">Address Line 1 :</label>
-          <input type="text" class="form-control" id="addr1" placeholder="Address Line 1" name="addr1" required>
+          <input type="text" class="form-control" id="addr1" name="addr1" required>
     </div>
 
     <div class="form-group">
           <label for="text">Address Line 2 :</label>
-          <input type="text" class="form-control" id="addr2" placeholder="Address Line 2" name="addr2" required>
+          <input type="text" class="form-control" id="addr2" name="addr2" required>
     </div>
 
     <div class="form-group">
         <label for="text">City :</label>
-        <input type="text" class="form-control" id="city" placeholder="Enter City" name="city" required>
+        <input type="text" class="form-control" id="city" name="city" required>
     </div>
 
     <div class="form-group">
         <label for="text">State :</label>
-        <input type="text" class="form-control" id="states" placeholder="Choose State" name="states" required>
+        <input type="text" class="form-control" id="states" name="states" required>
     </div>
 
     <div class="form-group">
         <label for="text">PostCode :</label>
-        <input type="text" class="form-control" id="postcode" placeholder="Enter Postcode" name="postcode">
+        <input type="text" class="form-control" id="postcode" name="postcode">
     </div>
     
     <button type="submit" class="btn btn-primary" name="save">Submit</button>
