@@ -2,10 +2,10 @@
     session_start();
 
     //live server
-    $conn = new mysqli('remotemysql.com','z3UPYAictr','5zZxKj7wNZ','z3UPYAictr') or die("Unable To Connect");
+    // $conn = new mysqli('remotemysql.com','z3UPYAictr','5zZxKj7wNZ','z3UPYAictr') or die("Unable To Connect");
 
     //test server
-    // $conn = new mysqli('localhost','root','', 'freegift_form') or die("Unable To Connect");
+    $conn = new mysqli('localhost','root','', 'freegift_form') or die("Unable To Connect");
 
     // Check connection
     if ($conn->connect_error) {
@@ -55,10 +55,7 @@
             print_r($attacherrors);
         }
 
-        //test the file size
-        print_r($attachfilesize);
-
-        //save sql file to db
+        //insert sql file to db
         $sql = "INSERT INTO 
         freegift_form (first_name, last_name, gender, dateofbirth, 
         phonenumber, email, address_line_one, address_line_two,
@@ -67,13 +64,32 @@
         '$address_line_one','$address_line_two','$city','$states','$postcode',
         '$countries','$inst_acc_name','$attachment_name','$attachfile')";
 
-        //Test SQL All Column First
-        print_r($attachment_name);
+        //select data from db
+        // $selectsql = "SELECT * FROM freegift_form WHERE email='$email'";
+        
+        // if($result=mysqli_query($conn,$selectsql)){
+        //     //Return number rows in result set
+        //     $rowcount = mysqli_num_rows($result);
+        //     print_r($rowcount);
 
-        //Success Can Direct To Save The Data
+        //     //Check Duplication For Email
+        //     if($rowcount > 0){
+        //         echo "Previous Email Was Detected, Please Try With New Email !!";
+        //     }
+        //     else {
+        //         echo "Invalid Function Happened";
+        //     }
+        // }
+
+
+        //Test SQL All Column First
+        // print_r($attachment_name);
+
+        // //Success Can Direct To Save The Data
         if($conn->query($sql) === TRUE){
             //Put Session Messages if true
             $_SESSION['success'] = 'Created Successfully !';
+
             //Test The DB Message If Success
             // echo 'Created Successfully !';
             header("location: freegift_form.php");

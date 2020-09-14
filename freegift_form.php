@@ -33,22 +33,22 @@
   <h1>Free Gift Form</h1>
   <form method="post" action="freegiftdatabase.php" enctype="multipart/form-data">
     <div class="form-group">
-        <span class="required_star">**</span><label for="text">Instagram Account Name : </label>
+        <label for="text">Instagram Account Name : </label>
         <input type="text" class="form-control" id="inst_acc_name" placeholder="Enter Your Instagram Account" name="inst_acc_name" required>
     </div>
 
     <div class="form-group">
-      <span class="required_star">**</span><label for="text">First Name :</label>
+      <label for="text">First Name :</label>
       <input type="text" class="form-control" id="first_name" placeholder="Enter First Name" name="first_name" required>
     </div>
 
     <div class="form-group">
-      <span class="required_star">**</span><label for="text">Last Name :</label>
+      <label for="text">Last Name :</label>
       <input type="text" class="form-control" id="last_name" placeholder="Enter Last Name" name="last_name" required>
     </div>
 
     <div class="form-group">
-        <span class="required_star">**</span><label for="gender">Gender :</label>
+        <label for="gender">Gender :</label>
         <select class="form-control" id="gender-select" name="gender" required>
           <option selected>Choose...</option>
           <option value="male">Male</option>
@@ -57,32 +57,32 @@
     </div>
 
     <div class="form-group">
-        <span class="required_star">**</span><label for="text">Date Of Birth :</label>
+        <label for="text">Date Of Birth :</label>
         <input type="text" class="form-control" id="dateofbirth" placeholder="Enter Date Of Birth" name="dateofbirth" required>
     </div>
 
     <div class="form-group">
-        <span class="required_star">**</span><label for="text">Phone Number :</label>
+        <label for="text">Phone Number :</label>
         <input type="text" class="form-control" id="phonenumber" placeholder="Enter Phone Number" name="phonenumber" required>
     </div>
 
     <div class="form-group">
-        <span class="required_star">**</span><label for="email">Email : </label>
+        <label for="email">Email : </label>
         <input type="email" class="form-control" id="email" placeholder="Enter Your Email" name="email" required>
     </div>
 
     <div class="form-group">
-          <span class="required_star">**</span><label for="text">Address Line 1 :</label>
+          <label for="text">Address Line 1 :</label>
           <input type="text" class="form-control" id="addr1" placeholder="Address Line 1" name="addr1" required>
     </div>
 
     <div class="form-group">
-          <span class="required_star">**</span><label for="text">Address Line 2 :</label>
+          <label for="text">Address Line 2 :</label>
           <input type="text" class="form-control" id="addr2" placeholder="Address Line 2" name="addr2" required>
     </div>
 
     <div class="form-group">
-        <span class="required_star">**</span><label for="text">City :</label>
+        <label for="text">City :</label>
         <input type="text" class="form-control" id="city" placeholder="Enter City" name="city" required>
     </div>
 
@@ -95,27 +95,6 @@
         <label for="text">PostCode :</label>
         <input type="text" class="form-control" id="postcode" placeholder="Enter Postcode" name="postcode">
     </div>
-
-    <div class="form-group">
-         <span class="required_star">**</span><label for="text">Country :</label>
-         <input type="text" class="form-control" id="countries" placeholder="Choose Country" name="countries">
-    </div>
-
-    <div class="form-group">
-         <span class="required_star">**</span><label for="text">Attachment Name :</label>
-         <input type="text" class="form-control" id="attachment_name" placeholder="Attachment Name" name="attachment_name">
-    </div>
-
-    <div class="form-group">
-          <span class="required_star">**</span><label for="text">Attachment :</label>
-          <input type="file" id="image" name="image" />
-          
-    </div>
-
-    <!--<div class="form-group">
-       <p>Choose File: </p>
-       <input type="file" id="chooseFile" name="choosefilename">
-    </div>  -->
     
     <button type="submit" class="btn btn-primary" name="save">Submit</button>
   </form>
