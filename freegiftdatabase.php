@@ -1,15 +1,17 @@
 <?php
     session_start();
 
+    //live server
     $conn = new mysqli('remotemysql.com','z3UPYAictr','5zZxKj7wNZ','z3UPYAictr') or die("Unable To Connect");
 
-    // Check connection
-    // if ($conn->connect_error) {
-    //     die("Connection failed: " . $conn->connect_error);
-    // }
-    // echo "Connected successfully";
-
+    //test server
     // $conn = new mysqli('localhost','root','', 'freegift_form') or die("Unable To Connect");
+
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+    echo "Connected successfully";
     
     if(isset($_POST['save']) ){
         $firstname = $_POST['first_name'];
@@ -19,19 +21,69 @@
         $phonenumber = $_POST['phonenumber'];
         $email = $_POST['email'];
 
-        $sql = "INSERT INTO freegift_form (first_name, last_name, gender, dateofbirth, phonenumber, email)
-        VALUES ('$firstname','$lastname','$gender','$dateofbirth','$phonenumber','$email')";
+        //Additional Details
+        $address_line_one = $_POST['addr1'];
+        $address_line_two = $_POST['addr2'];
+        $city = $_POST['city'];
+        $states = $_POST['states'];
+        $postcode = $_POST['postcode'];
+        $countries = $_POST['countries'];
+        $inst_acc_name = $_POST['inst_acc_name'];
+        $attachment_name = $_POST['attachment_name'];
+        
+        //image part
+        //file error message init
+        $attacherrors = array();
+        //file name with random number so that similiar dont get replaced
+        $attachfile = rand(1000,10000)."-".$_FILES["image"]["name"];
+        //get the file size
+        $attachfilesize = $_FILES['image']['size'];
+        //temp file name to store file
+        $tempfile = $_FILES["image"]["tmp_name"];
+        //upload dir path
+        $uploads_dir = 'static/images';
+        //restrict the file size
+        if($attachfilesize > 2097152){
+            $attacherrors[] = "File Size Must Be Not More Than 2 MB";
+        }
 
+        if(empty($attacherrors)==true){
+            //move upload file to specify location
+            move_uploaded_file($tempfile, $uploads_dir.'/'.$attachfile);
+        }else{
+            //print error messages if image was invalidated
+            print_r($attacherrors);
+        }
+
+        //test the file size
+        print_r($attachfilesize);
+
+        //save sql file to db
+        $sql = "INSERT INTO 
+        freegift_form (first_name, last_name, gender, dateofbirth, 
+        phonenumber, email, address_line_one, address_line_two,
+        city, states, postcode, countries, inst_acc_name, attachment_name, attachment)
+        VALUES ('$firstname','$lastname','$gender','$dateofbirth','$phonenumber','$email',
+        '$address_line_one','$address_line_two','$city','$states','$postcode',
+        '$countries','$inst_acc_name','$attachment_name','$attachfile')";
+
+        //Test SQL All Column First
+        print_r($attachment_name);
+
+        //Success Can Direct To Save The Data
         if($conn->query($sql) === TRUE){
             //Put Session Messages if true
             $_SESSION['success'] = 'Created Successfully !';
+            //Test The DB Message If Success
+            // echo 'Created Successfully !';
             header("location: freegift_form.php");
         } else {
             //Display false messages if failed
             $_SESSION['error'] = 'Please Try Again !';
+            //Test The DB Message If Failed
+            // echo 'Submitted Failed !';
             header("location: freegift_form.php");    
         }  
     }
-
     $conn->close();
 ?>
