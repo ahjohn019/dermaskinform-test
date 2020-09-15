@@ -25,7 +25,7 @@ body{
 }
 
 .banner-header{
-    padding:60px;
+    padding:10px;
     text-align:center;
     border:1px;
     color: black;
@@ -42,7 +42,6 @@ body{
 .img-class{
     width:100%;
     height:auto;
-    background-size:cover;
 }
 
 .terms-conditions{
