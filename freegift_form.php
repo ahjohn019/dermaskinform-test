@@ -28,6 +28,10 @@
     <div class="alert alert-success">Submitted Successfully!!</div>
   <?php unset($_SESSION['success']); } ?>
 
+  <?php if(isset($_SESSION['email_duplicate'])){ ?>
+     <div class="alert alert-danger">Cannot Input Same Email With Previous One, Please Retry Again.</div>
+  <?php unset($_SESSION['email_duplicate']); }?>
+
   <!--Put Background Banner Here-->
   <div class="banner-header">
       <img src="static/assets/banner-heliocare-final.jpg" alt="" class="img-class"/>

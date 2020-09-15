@@ -30,50 +30,38 @@
         
         //image part
 
-        //insert sql file to db
-        $sql = "INSERT INTO 
-        freegift_form (first_name, last_name, gender, dateofbirth, 
-        phonenumber, email, address_line_one, address_line_two, 
-        states, postcode, inst_acc_name)
-        VALUES ('$firstname','$lastname','$gender','$dateofbirth','$phonenumber','$email',
-        '$address_line_one','$address_line_two','$states','$postcode',
-        '$inst_acc_name')";
-
         //select data from db
-        // $selectsql = "SELECT * FROM freegift_form WHERE email='$email'";
+        $selectsql = "SELECT * FROM freegift_form WHERE email='$email'";
         
-        // if($result=mysqli_query($conn,$selectsql)){
-        //     //Return number rows in result set
-        //     $rowcount = mysqli_num_rows($result);
-        //     print_r($rowcount);
+        if($result=mysqli_query($conn,$selectsql)){
+            //Return number rows in result set
+            $rowcount = mysqli_num_rows($result);
+            //Check Duplication For Email, If Detected Dont Save (Throw Message Ask User Retry Again) Else Save It.
+            if($rowcount > 0){
+                $_SESSION['email_duplicate'] = "Cannot Insert More Than 1 Same Email!!, Please Retry Again.";
+                header("location: freegift_form.php");
+            } else {
+                $sql = "INSERT INTO 
+                freegift_form (first_name, last_name, gender, 
+                dateofbirth, phonenumber, 
+                email, address_line_one, 
+                address_line_two, states, 
+                postcode, inst_acc_name)
+                VALUES ('$firstname','$lastname','$gender',
+                '$dateofbirth','$phonenumber',
+                '$email','$address_line_one',
+                '$address_line_two','$states',
+                '$postcode','$inst_acc_name')";
 
-        //     //Check Duplication For Email
-        //     if($rowcount > 0){
-        //         echo "Previous Email Was Detected, Please Try With New Email !!";
-        //     }
-        //     else {
-        //         echo "Invalid Function Happened";
-        //     }
-        // }
-
-        //Test SQL All Column First
-        // print_r($attachment_name);
-
-        // //Success Can Direct To Save The Data
-        if($conn->query($sql) === TRUE){
-            //Put Session Messages if true
-            $_SESSION['success'] = 'Created Successfully !';
-
-            //Test The DB Message If Success
-            // echo 'Created Successfully !';
-            header("location: freegift_form.php");
-        } else {
-            //Display false messages if failed
-            $_SESSION['error'] = 'Please Try Again !';
-            //Test The DB Message If Failed
-            echo 'Submitted Failed !';
-            header("location: freegift_form.php");    
-        }  
+                if($conn->query($sql) === TRUE){
+                    $_SESSION['success'] = 'Created Successfully !';
+                    header("location: freegift_form.php");
+                } else {
+                    $_SESSION['error'] = 'Please Try Again !';
+                    header("location: freegift_form.php");
+                }
+            }
+        }
     }
     $conn->close();
 ?>
