@@ -14,23 +14,31 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <link rel="stylesheet" href="static/dermaskinform.css">
 
+
   <!-- JS, Popper.js, and jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+
+  <script src="static/js/validationform.js"></script>
 </head>
 <body>
 
 <div class="container">
-
   <?php if(isset($_SESSION['success'])){ ?>
-    <div class="alert alert-success">Submitted Successfully!!</div>
+    <div class="alert alert-success"><?php echo $_SESSION['success'] ?></div>
   <?php unset($_SESSION['success']); } ?>
 
   <?php if(isset($_SESSION['email_duplicate'])){ ?>
-     <div class="alert alert-danger">Cannot Input Same Email With Previous One, Please Retry Again.</div>
+     <div class="alert alert-danger"><?php echo $_SESSION['email_duplicate'] ?></div>
   <?php unset($_SESSION['email_duplicate']); }?>
+
+  <?php if(isset($_SESSION['stop_insert'])){ ?>
+    <div class="alert alert-danger"><?php echo $_SESSION['stop_insert'] ?></div>
+  <?php unset($_SESSION['stop_insert']); } ?>
 
   <!--Put Background Banner Here-->
   <div class="banner-header">
@@ -64,26 +72,26 @@
     </div>
   </div>
 
-  <form method="post" action="freegiftdatabase.php" enctype="multipart/form-data">
+  <form method="post" action="freegiftdatabase.php" enctype="multipart/form-data" id="dermaskin_form">
     <h4>Part 1: Basic Information</h4>
     <div class="form-group">
         <label for="text">Instagram Account Name : </label>
-        <input type="text" class="form-control" id="inst_acc_name" name="inst_acc_name" required>
+        <input type="text" class="form-control" id="inst_acc_name" name="inst_acc_name" >
     </div>
 
     <div class="form-group">
       <label for="text">First Name :</label>
-      <input type="text" class="form-control" id="first_name" name="first_name" required>
+      <input type="text" class="form-control" id="first_name" name="first_name" >
     </div>
 
     <div class="form-group">
       <label for="text">Last Name :</label>
-      <input type="text" class="form-control" id="last_name" name="last_name" required>
+      <input type="text" class="form-control" id="last_name" name="last_name" >
     </div>
 
     <div class="form-group">
         <label for="gender">Gender :</label>
-        <select class="form-control" id="gender-select" name="gender" required>
+        <select class="form-control" id="gender-select" name="gender" >
           <option selected>Choose...</option>
           <option value="male">Male</option>
           <option value="female">Female</option>
@@ -104,6 +112,7 @@
         <label for="email">Email : </label>
         <input type="email" class="form-control" id="email" name="email" required>
     </div>
+
     <h4>Part 2: Where should we deliver your sample?</h4>
     <div class="form-group">
           <label for="text">Address Line 1 :</label>
@@ -140,7 +149,7 @@
       </div>
     </div>
     
-    <button type="submit" class="btn btn-primary" name="save">Submit</button>
+    <button type="submit" class="btn btn-primary" name="save" onclick="validation_test()">Submit</button>
   </form>
 </div>
 </body>

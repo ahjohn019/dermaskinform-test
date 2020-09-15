@@ -30,15 +30,26 @@
         
         //image part
 
+        //limit database in live server db
+        $selectwholesql = "SELECT * FROM freegift_form";
+        if($wholeresult=mysqli_query($conn,$selectwholesql)){
+            $wholecount = mysqli_num_rows($wholeresult);
+            if($wholecount >= 750){
+                $_SESSION['stop_insert'] = "Full Redemption, Thanks For Joining Us.";
+                header("location: freegift_form.php");
+            }
+        }
+
         //select data from db
         $selectsql = "SELECT * FROM freegift_form WHERE email='$email'";
         
         if($result=mysqli_query($conn,$selectsql)){
             //Return number rows in result set
             $rowcount = mysqli_num_rows($result);
+
             //Check Duplication For Email, If Detected Dont Save (Throw Message Ask User Retry Again) Else Save It.
             if($rowcount > 0){
-                $_SESSION['email_duplicate'] = "Cannot Insert More Than 1 Same Email!!, Please Retry Again.";
+                $_SESSION['email_duplicate'] = "Cannot Input Same Email With Previous One, Please Retry Again.";
                 header("location: freegift_form.php");
             } else {
                 $sql = "INSERT INTO 
