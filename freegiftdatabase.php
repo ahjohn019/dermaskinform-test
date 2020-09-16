@@ -11,7 +11,6 @@
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-    echo "Connected successfully";
     
     if(isset($_POST['save']) ){
         $firstname = $_POST['first_name'];
@@ -29,16 +28,6 @@
         $inst_acc_name = $_POST['inst_acc_name'];
         
         //image part
-
-        //limit database in live server db
-        $selectwholesql = "SELECT * FROM freegift_form";
-        if($wholeresult=mysqli_query($conn,$selectwholesql)){
-            $wholecount = mysqli_num_rows($wholeresult);
-            if($wholecount >= 750){
-                $_SESSION['stop_insert'] = "Full Redemption, Thanks For Joining Us.";
-                header("location: freegift_form.php");
-            }
-        }
 
         //select data from db
         $selectsql = "SELECT * FROM freegift_form WHERE email='$email'";
@@ -64,9 +53,25 @@
                 '$address_line_two','$states',
                 '$postcode','$inst_acc_name')";
 
-                if($conn->query($sql) === TRUE){
-                    $_SESSION['success'] = 'Created Successfully !';
-                    header("location: freegift_form.php");
+                //limit database in live server db
+                $selectwholesql = "SELECT * FROM freegift_form";
+
+                // if($conn->query($sql) === TRUE){
+                //     $_SESSION['success'] = 'Created Successfully !';
+                //     header("location: freegift_form.php");
+                // } else 
+                if($wholeresult=mysqli_query($conn,$selectwholesql)){
+                    $wholerowcount = mysqli_num_rows($wholeresult);
+                    if($wholerowcount >= 750){
+                        $_SESSION['stop_insert'] = 'Full Redemptions, Thanks For Joining Us.';
+                        header("location: freegift_form.php");
+                    } else {
+                        if($conn->query($sql) === TRUE)
+                        {
+                            $_SESSION['success'] = 'Created Successfully !';
+                             header("location: freegift_form.php");
+                        }
+                    }
                 } else {
                     $_SESSION['error'] = 'Please Try Again !';
                     header("location: freegift_form.php");
