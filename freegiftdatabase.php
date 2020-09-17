@@ -41,18 +41,6 @@
                 $_SESSION['email_duplicate'] = "Cannot Input Same Email With Previous One, Please Retry Again.";
                 header("location: freegift_form.php");
             } else {
-                $sql = "INSERT INTO 
-                freegift_form (first_name, last_name, gender, 
-                dateofbirth, phonenumber, 
-                email, address_line_one, 
-                address_line_two, states, 
-                postcode, inst_acc_name)
-                VALUES ('$firstname','$lastname','$gender',
-                '$dateofbirth','$phonenumber',
-                '$email','$address_line_one',
-                '$address_line_two','$states',
-                '$postcode','$inst_acc_name')";
-
                 //limit database in live server db
                 $selectwholesql = "SELECT * FROM freegift_form";
 
@@ -62,15 +50,25 @@
                 // } else 
                 if($wholeresult=mysqli_query($conn,$selectwholesql)){
                     $wholerowcount = mysqli_num_rows($wholeresult);
-                    if($wholerowcount >= 750){
+                    if($wholerowcount >= 750){ //750
                         $_SESSION['stop_insert'] = 'Full Redemptions, Thanks For Joining Us.';
                         header("location: freegift_form.php");
                     } else {
-                        if($conn->query($sql) === TRUE)
-                        {
-                            $_SESSION['success'] = 'Created Successfully !';
-                             header("location: freegift_form.php");
-                        }
+                        $sql = "INSERT INTO 
+                        freegift_form (first_name, last_name, gender, 
+                        dateofbirth, phonenumber, 
+                        email, address_line_one, 
+                        address_line_two, states, 
+                        postcode, inst_acc_name)
+                        VALUES ('$firstname','$lastname','$gender',
+                        '$dateofbirth','$phonenumber',
+                        '$email','$address_line_one',
+                        '$address_line_two','$states',
+                        '$postcode','$inst_acc_name')";
+
+                        $_SESSION['success'] = 'Created Successfully !';
+                        header("location: freegift_form.php");
+                        
                     }
                 } else {
                     $_SESSION['error'] = 'Please Try Again !';
