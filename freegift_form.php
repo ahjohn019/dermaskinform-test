@@ -42,7 +42,7 @@
 
   <!--Put Background Banner Here-->
   <div class="banner-header">
-      <img src="static/assets/banner-heliocare-final.jpg" alt="" class="img-class"/>
+      <img src="static/assets/banner-exiuvance.jpg" alt="" class="img-class"/>
   </div>
 
   <!--Title text here-->
