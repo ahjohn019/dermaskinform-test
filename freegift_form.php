@@ -52,7 +52,7 @@
       <p style="text-decoration: underline; font-size:20px;">2 simple steps to redeem!</p>
       <p>1. Follow our Instagram accounts:</p>
       <p>@dermaskinshopmy: <a href="https://www.instagram.com/dermaskinshopmy/">https://www.instagram.com/dermaskinshopmy/</a></p>
-      <p>@heliocaremy: <a href="https://www.instagram.com/heliocaremy/">https://www.instagram.com/heliocaremy/</a></p>
+      <p>@Exuviancemy: <a href=" https://www.instagram.com/exuviancemy/"> https://www.instagram.com/exuviancemy/</a></p>
       <p class="custom-paragraph"><strong>Both accounts have to be followed to be entitled for the free samples!</strong></p>
       <p>2. Fill in the details below and you are done!</p>
       
@@ -67,7 +67,7 @@
     <div class="form-check">
       <input class="form-check-input" type="radio" name="sampleProduct1" id="sampleProduct1" value="option1" checked>
       <label class="form-check-label" for="sampleProduct1">
-        <strong>Heliocare Oral 2caps Sachet and Heliocare XF Gel SPF50 5ml (2 sets)</strong>
+        <strong>Exuviance Purifying Cleansing Gel (2ml) & Exuviance Evening Restorative Complex (2ml)</strong>
       </label>
     </div>
   </div>
