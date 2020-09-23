@@ -27,10 +27,8 @@
         $postcode = $_POST['postcode'];
         $inst_acc_name = $_POST['inst_acc_name'];
         
-        //image part
-
         //select data from db
-        $selectsql = "SELECT * FROM freegift_form WHERE email='$email'";
+        $selectsql = "SELECT * FROM freegift_formtest WHERE email='$email'";
         
         if($result=mysqli_query($conn,$selectsql)){
             //Return number rows in result set
@@ -42,12 +40,8 @@
                 header("location: freegift_form.php");
             } else {
                 //limit database in live server db
-                $selectwholesql = "SELECT * FROM freegift_form";
+                $selectwholesql = "SELECT * FROM freegift_formtest";
 
-                // if($conn->query($sql) === TRUE){
-                //     $_SESSION['success'] = 'Created Successfully !';
-                //     header("location: freegift_form.php");
-                // } else 
                 if($wholeresult=mysqli_query($conn,$selectwholesql)){
                     $wholerowcount = mysqli_num_rows($wholeresult);
                     if($wholerowcount >= 750){ //750
@@ -55,7 +49,7 @@
                         header("location: freegift_form.php");
                     } else {
                         $sql = "INSERT INTO 
-                        freegift_form (first_name, last_name, gender, 
+                        freegift_formtest (first_name, last_name, gender, 
                         dateofbirth, phonenumber, 
                         email, address_line_one, 
                         address_line_two, states, 
@@ -65,9 +59,13 @@
                         '$email','$address_line_one',
                         '$address_line_two','$states',
                         '$postcode','$inst_acc_name')";
-
-                        $_SESSION['success'] = 'Created Successfully !';
-                        header("location: freegift_form.php");
+                      
+                        if ($conn->query($sql) === TRUE) {
+                            $_SESSION['success'] = 'Created Successfully !';
+                            header("location: freegift_form.php");
+                        } else {
+                            echo "Error: " . $sql . "<br>" . $conn->error;
+                        }
                         
                     }
                 } else {
