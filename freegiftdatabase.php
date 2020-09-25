@@ -21,14 +21,14 @@
         $email = $_POST['email'];
 
         //Additional Details
-        $address_line_one = $_POST['addr1'];
-        $address_line_two = $_POST['addr2'];
+        $address_line_one = $_POST['address_one'];
         $states = $_POST['states'];
         $postcode = $_POST['postcode'];
         $inst_acc_name = $_POST['inst_acc_name'];
+        $city = $_POST['city'];
         
         //select data from db
-        $selectsql = "SELECT * FROM freegift_formtest WHERE email='$email'";
+        $selectsql = "SELECT * FROM dermaform_test WHERE email='$email'";
         
         if($result=mysqli_query($conn,$selectsql)){
             //Return number rows in result set
@@ -40,7 +40,7 @@
                 header("location: freegift_form.php");
             } else {
                 //limit database in live server db
-                $selectwholesql = "SELECT * FROM freegift_formtest";
+                $selectwholesql = "SELECT * FROM dermaform_test";
 
                 if($wholeresult=mysqli_query($conn,$selectwholesql)){
                     $wholerowcount = mysqli_num_rows($wholeresult);
@@ -49,20 +49,19 @@
                         header("location: freegift_form.php");
                     } else {
                         $sql = "INSERT INTO 
-                        freegift_formtest (first_name, last_name, gender, 
+                        dermaform_test (first_name, last_name, gender, 
                         dateofbirth, phonenumber, 
-                        email, address_line_one, 
-                        address_line_two, states, 
-                        postcode, inst_acc_name)
+                        email, states, 
+                        postcode, inst_acc_name, address_one, city)
                         VALUES ('$firstname','$lastname','$gender',
                         '$dateofbirth','$phonenumber',
-                        '$email','$address_line_one',
-                        '$address_line_two','$states',
-                        '$postcode','$inst_acc_name')";
+                        '$email','$states',
+                        '$postcode','$inst_acc_name','$address_line_one','$city')";
                       
                         if ($conn->query($sql) === TRUE) {
                             $_SESSION['success'] = 'Created Successfully !';
                             header("location: freegift_form.php");
+                            
                         } else {
                             echo "Error: " . $sql . "<br>" . $conn->error;
                         }

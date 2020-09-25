@@ -116,12 +116,7 @@
     <h4>Part 2: Where should we deliver your sample?</h4>
     <div class="form-group">
           <label for="text">Address Line 1 :</label>
-          <input type="text" class="form-control" id="addr1" name="addr1" required>
-    </div>
-
-    <div class="form-group">
-          <label for="text">Address Line 2 :</label>
-          <input type="text" class="form-control" id="addr2" name="addr2" required>
+          <input type="text" class="form-control" id="address_one" name="address_one" required>
     </div>
 
     <div class="form-group">
