@@ -16,7 +16,10 @@ body{
     box-shadow: 3px 3px 5px 6px #ccc;
     border:1px;
     padding-top: 10px;
-    
+}
+
+label.error {
+    color:red;
 }
 
 .dermaskin-form-box{
@@ -53,7 +56,5 @@ body{
     font-style: italic;
     font-size:10px;
 }
-
-
 
 

@@ -23,7 +23,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
 
-  <script src="static/js/validationform.js"></script>
+  <!-- <script src="static/js/validationform.js"></script> -->
+
 </head>
 <body>
 
@@ -75,36 +76,36 @@
   <form method="post" action="freegiftdatabase.php" enctype="multipart/form-data" id="dermaskin_form">
     <h4>Part 1: Basic Information</h4>
     <div class="form-group">
-        <label for="text">Instagram Account Name : </label>
-        <input type="text" class="form-control" id="inst_acc_name" name="inst_acc_name" >
+        <label for="instacc">Instagram Account Name : </label>
+        <input type="text" class="form-control" id="inst_acc_name" name="inst_acc_name" maxlength="20" required>
     </div>
 
     <div class="form-group">
-      <label for="text">First Name :</label>
-      <input type="text" class="form-control" id="first_name" name="first_name" >
+      <label for="firstname">First Name :</label>
+      <input type="text" class="form-control" id="first_name" name="first_name" minlength="4" maxlength="25" required>
     </div>
 
     <div class="form-group">
-      <label for="text">Last Name :</label>
-      <input type="text" class="form-control" id="last_name" name="last_name" >
+      <label for="lastname">Last Name :</label>
+      <input type="text" class="form-control" id="last_name" name="last_name" maxlength="35" required>
     </div>
 
     <div class="form-group">
         <label for="gender">Gender :</label>
-        <select class="form-control" id="gender-select" name="gender" >
+        <select class="form-control" id="gender-select" name="gender" required>
           <option value="male">Male</option>
           <option value="female">Female</option>
         </select>
     </div>
 
     <div class="form-group">
-        <label for="text">Date Of Birth :</label>
+        <label for="dateofbirth">Date Of Birth :</label>
         <input type="text" class="form-control" id="dateofbirth" name="dateofbirth" required>
     </div>
 
     <div class="form-group">
-        <label for="text">Phone Number :</label>
-        <input type="text" class="form-control" id="phonenumber" name="phonenumber" required>
+        <label for="phonenumber">Phone Number :</label>
+        <input type="text" class="form-control" id="phonenumber" name="phonenumber" pattern="(1-)?\d{3}-\d{7}" title="Must Followed Phone Format : 01x-xxxxxxx" >
     </div>
 
     <div class="form-group">
@@ -114,17 +115,17 @@
 
     <h4>Part 2: Where should we deliver your sample?</h4>
     <div class="form-group">
-          <label for="text">Address Line 1 :</label>
+          <label for="address_one">Address Line 1 :</label>
           <input type="text" class="form-control" id="address_one" name="address_one" required>
     </div>
 
     <div class="form-group">
-        <label for="text">City :</label>
+        <label for="city">City :</label>
         <input type="text" class="form-control" id="city" name="city" required>
     </div>
 
     <div class="form-group">
-        <label for="text">State :</label>
+        <label for="states">State :</label>
         <!-- <input type="text" class="form-control" id="states" name="states" required> -->
         <select class="form-control" name="states" id="state-select">
             <option value="Johor">Johor</option>
@@ -146,13 +147,13 @@
     </div>
 
     <div class="form-group">
-        <label for="text">PostCode :</label>
-        <input type="text" class="form-control" id="postcode" name="postcode">
+        <label for="postcode">PostCode :</label>
+        <input type="text" class="form-control" id="postcode" name="postcode" required>
     </div>
 
     <div class="terms-conditions">
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="termconditions">
+        <input class="form-check-input" type="checkbox" value="" id="termconditions" required>
         <label class="form-check-label" for="termconditions">
           <strong>Agree to terms and conditions</strong>
         </label>
@@ -174,6 +175,11 @@
         changeYear : true,
         yearRange : "1930:2020"
       });
+
+      $('input[name=first_name]').on("invalid", function () {
+        this.setCustomValidity("Please enter your firstname");
+      });
+
     });
 </script>
 </html>
