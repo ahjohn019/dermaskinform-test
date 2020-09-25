@@ -92,7 +92,6 @@
     <div class="form-group">
         <label for="gender">Gender :</label>
         <select class="form-control" id="gender-select" name="gender" >
-          <option selected>Choose...</option>
           <option value="male">Male</option>
           <option value="female">Female</option>
         </select>
@@ -126,7 +125,24 @@
 
     <div class="form-group">
         <label for="text">State :</label>
-        <input type="text" class="form-control" id="states" name="states" required>
+        <!-- <input type="text" class="form-control" id="states" name="states" required> -->
+        <select class="form-control" name="states" id="state-select">
+            <option value="Johor">Johor</option>
+            <option value="Kedah">Kedah</option>
+            <option value="Kelantan">Kelantan</option>
+            <option value="Kuala Lumpur">Kuala Lumpur</option>
+            <option value="Labuan">Labuan</option>
+            <option value="Malacca">Malacca</option>
+            <option value="Negeri Sembilan">Negeri Sembilan</option>
+            <option value="Pahang">Pahang</option>
+            <option value="Perak">Perak</option>
+            <option value="Perlis">Perlis</option>
+            <option value="Penang">Penang</option>
+            <option value="Sabah">Sabah</option>
+            <option value="Sarawak">Sarawak</option>
+            <option value="Selangor">Selangor</option>
+            <option value="Terengganu">Terengganu</option>
+        </select>
     </div>
 
     <div class="form-group">
