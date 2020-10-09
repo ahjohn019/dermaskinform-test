@@ -44,8 +44,8 @@
 
                 if($wholeresult=mysqli_query($conn,$selectwholesql)){
                     $wholerowcount = mysqli_num_rows($wholeresult);
-                    if($wholerowcount >= 750){ //750
-                        $_SESSION['stop_insert'] = 'Full Redemptions, Thanks For Joining Us.';
+                    if($wholerowcount >= 1336){ //1354
+                        $_SESSION['stop_insert'] = 'Reached Maximum 300 Already, Thanks For Joining Us.';
                         header("location: freegift_form.php");
                     } else {
                         $sql = "INSERT INTO 
@@ -64,8 +64,7 @@
                             
                         } else {
                             echo "Error: " . $sql . "<br>" . $conn->error;
-                        }
-                        
+                        }                       
                     }
                 } else {
                     $_SESSION['error'] = 'Please Try Again !';

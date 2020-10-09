@@ -43,22 +43,21 @@
 
   <!--Put Background Banner Here-->
   <div class="banner-header">
-      <img src="static/assets/banner-exiuvance.jpg" alt="" class="img-class"/>
+      <img src="static/assets/12102020-neostratabanner.jpg" alt="" class="img-class"/>
   </div>
 
   <!--Title text here-->
   <div class="dermaskin-form">
     <div class="dermaskin-form-box">
-      <h3>Follow us NOW to redeem your FREE samples!</h3>
+      <h3>Follow us NOW to redeem your FREE Neostrata samples!</h3>
       <p style="text-decoration: underline; font-size:20px;">2 simple steps to redeem!</p>
       <p>1. Follow our Instagram accounts:</p>
       <p>@dermaskinshopmy: <a href="https://www.instagram.com/dermaskinshopmy/">https://www.instagram.com/dermaskinshopmy/</a></p>
-      <p>@Exuviancemy: <a href=" https://www.instagram.com/exuviancemy/"> https://www.instagram.com/exuviancemy/</a></p>
+      <p>@neostratamy: <a href="https://www.instagram.com/neostratamy/"> https://www.instagram.com/neostratamy/</a></p>
       <p class="custom-paragraph"><strong>Both accounts have to be followed to be entitled for the free samples!</strong></p>
       <p>2. Fill in the details below and you are done!</p>
       
-      <span class="custom-paragraph"><span>**</span><strong>while stock last</strong><br /></span>
-      <span class="custom-paragraph"><span>**</span><strong>only applicable for NEW Dermaskinshop customers</strong></span>
+      <span class="custom-paragraph"><span>**</span><strong>*for the first 300 customers only</strong><br /></span>
       
     </div>
   </div> 
@@ -105,6 +104,8 @@
 
     <div class="form-group">
         <label for="phonenumber">Phone Number :</label>
+        <br>
+        <strong>Example (012-3456789)</strong>
         <input type="text" class="form-control" id="phonenumber" name="phonenumber" pattern="(1-)?\d{3}-\d{7}" title="Must Followed Phone Format : 01x-xxxxxxx" >
     </div>
 
