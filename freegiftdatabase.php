@@ -13,22 +13,21 @@
     }
     
     if(isset($_POST['save']) ){
-        $firstname = $_POST['first_name'];
-        $lastname = $_POST['last_name'];
+        $fullname = $_POST['full_name'];
         $gender = $_POST['gender'];
         $dateofbirth = $_POST['dateofbirth'];
         $phonenumber = $_POST['phonenumber'];
         $email = $_POST['email'];
 
         //Additional Details
-        $address_line_one = $_POST['address_one'];
+        $address_main = $_POST['address_main'];
         $states = $_POST['states'];
         $postcode = $_POST['postcode'];
         $inst_acc_name = $_POST['inst_acc_name'];
         $city = $_POST['city'];
         
         //select data from db
-        $selectsql = "SELECT * FROM dermaform_test WHERE email='$email'";
+        $selectsql = "SELECT * FROM dermaform_dev WHERE email='$email'";
         
         if($result=mysqli_query($conn,$selectsql)){
             //Return number rows in result set
@@ -40,23 +39,26 @@
                 header("location: freegift_form.php");
             } else {
                 //limit database in live server db
-                $selectwholesql = "SELECT * FROM dermaform_test";
+                $selectwholesql = "SELECT * FROM dermaform_dev";
 
                 if($wholeresult=mysqli_query($conn,$selectwholesql)){
                     $wholerowcount = mysqli_num_rows($wholeresult);
-                    if($wholerowcount >= 1336){ //1354
-                        $_SESSION['stop_insert'] = 'Reached Maximum 300 Already, Thanks For Joining Us.';
+                    if($wholerowcount >= 1534){ //1336
+                        $_SESSION['stop_insert'] = 'Reached Maximum 500 Already, Thanks For Joining Us.';
                         header("location: freegift_form.php");
                     } else {
+                        $date = new DateTime("now", new DateTimeZone('Asia/Singapore') );
+                        $created_at = $date->format('Y-m-d H:i:s');
+
                         $sql = "INSERT INTO 
-                        dermaform_test (first_name, last_name, gender, 
+                        dermaform_dev (full_name, gender, 
                         dateofbirth, phonenumber, 
                         email, states, 
-                        postcode, inst_acc_name, address_one, city)
-                        VALUES ('$firstname','$lastname','$gender',
+                        postcode, inst_acc_name, address_main, city, created_at)
+                        VALUES ('$fullname','$gender',
                         '$dateofbirth','$phonenumber',
                         '$email','$states',
-                        '$postcode','$inst_acc_name','$address_line_one','$city')";
+                        '$postcode','$inst_acc_name','$address_main','$city','$created_at')";
                       
                         if ($conn->query($sql) === TRUE) {
                             $_SESSION['success'] = 'Created Successfully !';

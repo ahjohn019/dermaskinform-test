@@ -67,7 +67,7 @@
     <div class="form-check">
       <input class="form-check-input" type="radio" name="sampleProduct1" id="sampleProduct1" value="option1" checked>
       <label class="form-check-label" for="sampleProduct1">
-        <strong>Exuviance Purifying Cleansing Gel (2ml) & Exuviance Evening Restorative Complex (2ml)</strong>
+        <strong>Neostrata Cellular Restoration (2g) & Neostrata Firming Collagen Booster (2g)</strong>
       </label>
     </div>
   </div>
@@ -80,13 +80,8 @@
     </div>
 
     <div class="form-group">
-      <label for="firstname">First Name :</label>
-      <input type="text" class="form-control" id="first_name" name="first_name" minlength="4" maxlength="25" required>
-    </div>
-
-    <div class="form-group">
-      <label for="lastname">Last Name :</label>
-      <input type="text" class="form-control" id="last_name" name="last_name" maxlength="35" required>
+      <label for="fullname">Full Name :</label>
+      <input type="text" class="form-control" id="full_name" name="full_name" minlength="4" maxlength="40" required>
     </div>
 
     <div class="form-group">
@@ -99,13 +94,11 @@
 
     <div class="form-group">
         <label for="dateofbirth">Date Of Birth :</label>
-        <input type="text" class="form-control" id="dateofbirth" name="dateofbirth" required>
+        <input type="text" class="form-control" id="dateofbirth" name="dateofbirth" pattern="^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[13-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$" title="Must Follow Date Format(dd/mm/yyyy)" required>
     </div>
 
     <div class="form-group">
         <label for="phonenumber">Phone Number :</label>
-        <br>
-        <strong>Example (012-3456789)</strong>
         <input type="text" class="form-control" id="phonenumber" name="phonenumber" pattern="(1-)?\d{3}-\d{7}" title="Must Followed Phone Format : 01x-xxxxxxx" >
     </div>
 
@@ -116,8 +109,8 @@
 
     <h4>Part 2: Where should we deliver your sample?</h4>
     <div class="form-group">
-          <label for="address_one">Address Line 1 :</label>
-          <input type="text" class="form-control" id="address_one" name="address_one" required>
+          <label for="address_main">Address Line 1 :</label>
+          <input type="text" class="form-control" id="address_main" name="address_main" required>
     </div>
 
     <div class="form-group">
@@ -171,7 +164,7 @@
 <script>
     $(document).ready(function(){
       $('#dateofbirth').datepicker({
-        format: 'mm/dd/yyyy',
+        dateFormat: 'dd/mm/yy',
         changeMonth : true,
         changeYear : true,
         yearRange : "1930:2020"

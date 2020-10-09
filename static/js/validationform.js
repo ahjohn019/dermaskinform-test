@@ -4,11 +4,8 @@ function validation_test(){
             inst_acc_name: {
                 required:true,
             },
-            first_name: {
+            full_name: {
                 required: true,
-            },
-            last_name:{
-                required:true,
             },
             email: {
                 required: true,
