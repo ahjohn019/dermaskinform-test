@@ -99,7 +99,8 @@
 
     <div class="form-group">
         <label for="phonenumber">Phone Number :</label>
-        <input type="text" class="form-control" id="phonenumber" name="phonenumber" pattern="(1-)?\d{3}-\d{7}" title="Must Followed Phone Format : 01x-xxxxxxx" >
+        <p style="color:red;font-size:12px;"><strong>Format: 01xxxxxxxx (Malaysia Phone Number)</strong></p>
+        <input type="text" class="form-control" id="phonenumber" name="phonenumber" pattern="^(\+?6?01)[0-46-9]*[0-9]{7,8}$" title="Must Followed Phone Format : 01xxxxxxxx or +601xxxxxxxx" >
     </div>
 
     <div class="form-group">
