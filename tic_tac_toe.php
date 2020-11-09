@@ -40,7 +40,7 @@
         <img src="static/assets/tic-tac-toe_minigames.png" alt="" class="tic-tac-toe-logo">
 
         <?php   
-               $ip = getenv('HTTP_CLIENT_IP')?:
+               $ipaddress = getenv('HTTP_CLIENT_IP')?:
                     getenv('HTTP_X_FORWARDED_FOR')?:
                     getenv('HTTP_X_FORWARDED')?:
                     getenv('HTTP_FORWARDED_FOR')?:
@@ -48,7 +48,7 @@
                     getenv('REMOTE_ADDR');
         ?>
         
-        <h3>Your IP Address : <?php echo $ip;  ?></h3>
+        <h3>Your IP Address : <?php echo $ipaddress;  ?></h3>
         <h2>Round <p id="round_number" class="round_number"></p></h2>
     
         <table id="table_tictactoe">

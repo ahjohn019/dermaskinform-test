@@ -642,7 +642,7 @@ function endGame(who){
         document.getElementById(id).style.cursor = "default";
     }
 
-    if(round >= 2){
+    if(round >= 6){
         enteruserdetails();
     }
 
