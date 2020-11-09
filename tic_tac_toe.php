@@ -45,7 +45,7 @@
                 // $externalIp = $m[1];
         ?>
         
-        <h3>Your IP Address : <?php echo $_SERVER["REMOTE_ADDR"];  ?></h3>
+        <h3>Your IP Address : <?php echo $_SERVER["HTTP_CLIENT_IP"];  ?></h3>
         <h2>Round <p id="round_number" class="round_number"></p></h2>
     
         <table id="table_tictactoe">

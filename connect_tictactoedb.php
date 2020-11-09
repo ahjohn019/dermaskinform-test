@@ -23,7 +23,7 @@
         $created_at = $date->format('Y-m-d H:i:s');
 
         //get external ip address
-        $externalContent = $_SERVER["REMOTE_ADDR"]; 
+        $externalContent = $_SERVER["HTTP_CLIENT_IP"]; 
 
         //return whole data
         $selectwholesql = "SELECT * FROM dermagame_dev";
