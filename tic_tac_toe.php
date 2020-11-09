@@ -40,12 +40,12 @@
         <img src="static/assets/tic-tac-toe_minigames.png" alt="" class="tic-tac-toe-logo">
 
         <?php   
-                $externalContent = file_get_contents('http://checkip.dyndns.com/');
-                preg_match('/Current IP Address: \[?([:.0-9a-fA-F]+)\]?/', $externalContent, $m);
-                $externalIp = $m[1];
+                // $externalContent = file_get_contents('http://checkip.dyndns.com/');
+                // preg_match('/Current IP Address: \[?([:.0-9a-fA-F]+)\]?/', $externalContent, $m);
+                // $externalIp = $m[1];
         ?>
         
-        <h3>Your IP Address : <?php echo $externalIp ?></h3>
+        <h3>Your IP Address : <?php echo $_SERVER["HTTP_X_FORWARDED_FOR"];  ?></h3>
         <h2>Round <p id="round_number" class="round_number"></p></h2>
     
         <table id="table_tictactoe">

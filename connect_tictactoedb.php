@@ -23,9 +23,7 @@
         $created_at = $date->format('Y-m-d H:i:s');
 
         //get external ip address
-        $externalContent = file_get_contents('http://checkip.dyndns.com/');
-        preg_match('/Current IP Address: \[?([:.0-9a-fA-F]+)\]?/', $externalContent, $m);
-        $externalIp = $m[1];
+        $externalContent = $_SERVER["HTTP_X_FORWARDED_FOR"]; 
 
         //return whole data
         $selectwholesql = "SELECT * FROM dermagame_dev";
