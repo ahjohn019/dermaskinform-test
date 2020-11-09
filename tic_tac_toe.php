@@ -38,7 +38,14 @@
     
     <div class="container">
         <img src="static/assets/tic-tac-toe_minigames.png" alt="" class="tic-tac-toe-logo">
-        <h3>Your IP Address : <?php echo getHostByName(getHostName()); ?></h3>
+
+        <?php   
+                $externalContent = file_get_contents('http://checkip.dyndns.com/');
+                preg_match('/Current IP Address: \[?([:.0-9a-fA-F]+)\]?/', $externalContent, $m);
+                $externalIp = $m[1];
+        ?>
+        
+        <h3>Your IP Address : <?php echo $externalIp ?></h3>
         <h2>Round <p id="round_number" class="round_number"></p></h2>
     
         <table id="table_tictactoe">
@@ -115,6 +122,10 @@
                     <p>Computer: <?php echo $_SESSION['score_computer'] ?></p>
                     <p>Player: <?php echo $_SESSION['score_player'] ?></p>
                     <p>You Get: <?php echo $_SESSION['reward_item'] ?></p>
+                    <?php if ($_SESSION['score_computer'] == 1){ ?>
+                        <p>testscore1</p>
+                    <?php } ?>
+
             </div>
         </div>
 

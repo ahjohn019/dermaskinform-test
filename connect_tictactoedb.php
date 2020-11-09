@@ -21,14 +21,18 @@
         $drawpoint = $_GET['score_ties'];
         $date = new DateTime("now", new DateTimeZone('Asia/Kuala_Lumpur'));
         $created_at = $date->format('Y-m-d H:i:s');
-        $ip_address = getHostByName(getHostName());
+
+        //get external ip address
+        $externalContent = file_get_contents('http://checkip.dyndns.com/');
+        preg_match('/Current IP Address: \[?([:.0-9a-fA-F]+)\]?/', $externalContent, $m);
+        $externalIp = $m[1];
 
         //return whole data
         $selectwholesql = "SELECT * FROM dermagame_dev";
         //return email data only
         $selectemailsql = "SELECT * FROM dermagame_dev WHERE email='$email'";
         //return ip address
-        $selectipaddresssql = "SELECT * FROM dermagame_dev WHERE ip_address='$ip_address'";
+        $selectipaddresssql = "SELECT * FROM dermagame_dev WHERE ip_address='$externalIp'";
 
         //initialize the db query set
         $emailresult=mysqli_query($conn,$selectemailsql);
@@ -44,6 +48,7 @@
             $emailrowcount = mysqli_num_rows($emailresult);
             $iprowcount = mysqli_num_rows($ipresult);
 
+            // $iprowcount > 0
             //Email Duplicate Detected
             if( ($emailrowcount > 0) || ($iprowcount > 0)){
                 $_SESSION['duplicate_msg'] = "You Already Try Once, Thank You For Participating Our Contest.";
@@ -64,7 +69,7 @@
                         ai_point, draw_point, reward_item, 
                         created_at, ip_address) 
                         VALUES ('$playername','$email',$playerpoint,
-                        $aipoint,$drawpoint,'$rewarditem','$created_at','$ip_address')";
+                        $aipoint,$drawpoint,'$rewarditem','$created_at','$externalIp')";
 
                         if ($conn->query($insertsql) === TRUE){
                             $_SESSION['success_message'] = 'Thank You For Support Our Contest!';
