@@ -38,16 +38,6 @@
     
     <div class="container">
         <img src="static/assets/tic-tac-toe_minigames.png" alt="" class="tic-tac-toe-logo">
-        <?php   
-               $ipaddress = getenv('HTTP_CLIENT_IP')?:
-                    getenv('HTTP_X_FORWARDED_FOR')?:
-                    getenv('HTTP_X_FORWARDED')?:
-                    getenv('HTTP_FORWARDED_FOR')?:
-                    getenv('HTTP_FORWARDED')?:
-                    getenv('REMOTE_ADDR');
-        ?>
-        
-        <h3>Your IP Address : <?php echo $ipaddress;  ?></h3>
         <h2>Round <p id="round_number" class="round_number"></p></h2>
     
         <table id="table_tictactoe">
@@ -112,9 +102,9 @@
                 <div class="modal-content">
                     <h2>Forms</h2>
                     <label for="playername">Player Name : </label>
-                    <input type="text" id="playername" name="playername"><br><br>
+                    <input type="text" id="playername" name="playername" class="form-control" required><br><br>
                     <label for="email">Email : </label>
-                    <input type="text" id="email" name="email"><br><br>
+                    <input type="text" id="email" name="email" class="form-control" required><br><br>
                     <button id="submitUser" type="submit" class="dermaButton" name="save">
                         Submit
                     </button>
