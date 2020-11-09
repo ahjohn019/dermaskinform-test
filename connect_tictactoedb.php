@@ -3,10 +3,10 @@
     session_start();
 
     //live server
-    // $conn = new mysqli('remotemysql.com','z3UPYAictr','5zZxKj7wNZ','z3UPYAictr') or die("Unable To Connect");
+    $conn = new mysqli('remotemysql.com','z3UPYAictr','5zZxKj7wNZ','z3UPYAictr') or die("Unable To Connect");
 
     //test server
-    $conn = new mysqli('localhost','root','', 'derma_tictactoe') or die("Unable To Connect");
+    // $conn = new mysqli('localhost','root','', 'derma_tictactoe') or die("Unable To Connect");
 
     //Check connection
     if($conn->connect_error){
@@ -24,11 +24,11 @@
         $ip_address = getHostByName(getHostName());
 
         //return whole data
-        $selectwholesql = "SELECT * FROM derma_gameone";
+        $selectwholesql = "SELECT * FROM dermagame_dev";
         //return email data only
-        $selectemailsql = "SELECT * FROM derma_gameone WHERE email='$email'";
+        $selectemailsql = "SELECT * FROM dermagame_dev WHERE email='$email'";
         //return ip address
-        $selectipaddresssql = "SELECT * FROM derma_gameone WHERE ip_address='$ip_address'";
+        $selectipaddresssql = "SELECT * FROM dermagame_dev WHERE ip_address='$ip_address'";
 
         //initialize the db query set
         $emailresult=mysqli_query($conn,$selectemailsql);
@@ -59,7 +59,7 @@
                         header("location: tic_tac_toe.php");
                     } else {
                         // insert data to db
-                        $insertsql = "INSERT INTO derma_gameone
+                        $insertsql = "INSERT INTO dermagame_dev
                         (player_name, email, player_point, 
                         ai_point, draw_point, reward_item, 
                         created_at, ip_address) 
