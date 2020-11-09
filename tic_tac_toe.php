@@ -38,7 +38,6 @@
     
     <div class="container">
         <img src="static/assets/tic-tac-toe_minigames.png" alt="" class="tic-tac-toe-logo">
-
         <?php   
                $ipaddress = getenv('HTTP_CLIENT_IP')?:
                     getenv('HTTP_X_FORWARDED_FOR')?:
@@ -100,8 +99,10 @@
                     <input type="radio" name="player" id="rx" value="x" checked>X (go first)
                 </label>
                 <label><input type="radio" name="player" id="ro" value="o">O<br></label>
-                <button id="submitBtn" type="submit" class="startButton" onclick="getOptions()">Play</button>
-                <p>Remarks : Only Can Play One Time </p>
+                <button id="submitBtn" type="submit" class="dermaButton" onclick="getOptions()">
+                    Play
+                </button>
+                
             </div>
         </div>
 
@@ -114,7 +115,9 @@
                     <input type="text" id="playername" name="playername"><br><br>
                     <label for="email">Email : </label>
                     <input type="text" id="email" name="email"><br><br>
-                    <button id="submitUser" type="submit" class="userButton" name="save" >Submit</button>
+                    <button id="submitUser" type="submit" class="dermaButton" name="save">
+                        Submit
+                    </button>
                 </div>
             </div>
         </form>
@@ -124,11 +127,18 @@
                     <p>Reward Message</p>
                     <p>Computer: <?php echo $_SESSION['score_computer'] ?></p>
                     <p>Player: <?php echo $_SESSION['score_player'] ?></p>
-                    <p>You Get: <?php echo $_SESSION['reward_item'] ?></p>
-                    <?php if ($_SESSION['score_computer'] == 1){ ?>
-                        <p>testscore1</p>
+
+                    <?php if ($_SESSION['score_player'] == 5){ ?>
+                        <p>You Get: Exuviance FreeKits Sample Kits </p>
+                        <img src="static/assets/exuviancesample-removebg.png" class="image_reward" alt="" class="exuviancesample-logo" />
+                        
+                    <?php } else { ?>
+                        <p>You Get: <?php echo $_SESSION['reward_item'] ?></p>
                     <?php } ?>
 
+                    <form action="tic_tac_toe.php" method="post">
+                        <input type="submit" value="Home" />
+                    </form>
             </div>
         </div>
 

@@ -43,7 +43,11 @@
         $wholeresult=mysqli_query($conn,$selectwholesql);
 
         //reward tier condition
-        ($playerpoint == 1) ? $rewarditem = "Exuviance-100ml" : ($playerpoint == 3) ? $rewarditem = "Heliocare-100ml" : $rewarditem =  "Sorry No Reward Given";
+        ($playerpoint == 1) ? 
+        $rewarditem = "Exuviance-100ml" : 
+        ($playerpoint == 3) ? 
+        $rewarditem = "Heliocare-100ml" : 
+        $rewarditem =  "Sorry No Reward Given";
 
 
         if($emailresult || $ipresult){
@@ -53,7 +57,7 @@
 
             // $iprowcount > 0
             //Email Duplicate Detected
-            if( ($emailrowcount > 0) || ($iprowcount > 0)){
+            if( ($emailrowcount > 0)){
                 $_SESSION['duplicate_msg'] = "You Already Try Once, Thank You For Participating Our Contest.";
                 
                 header("location: tic_tac_toe.php");

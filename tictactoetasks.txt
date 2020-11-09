@@ -1,4 +1,4 @@
 1. return to homepage
 2. add image on reward tier messages
 3. add difficulties for tic tac toe ai
-4. IP ADDRESS issues
+4. IP ADDRESS issues [Done]
