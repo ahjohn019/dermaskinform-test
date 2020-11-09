@@ -23,14 +23,19 @@
         $created_at = $date->format('Y-m-d H:i:s');
 
         //get external ip address
-        $externalContent = $_SERVER["HTTP_CLIENT_IP"]; 
+        $ipaddress = getenv('HTTP_CLIENT_IP')?:
+            getenv('HTTP_X_FORWARDED_FOR')?:
+            getenv('HTTP_X_FORWARDED')?:
+            getenv('HTTP_FORWARDED_FOR')?:
+            getenv('HTTP_FORWARDED')?:
+            getenv('REMOTE_ADDR');
 
         //return whole data
         $selectwholesql = "SELECT * FROM dermagame_dev";
         //return email data only
         $selectemailsql = "SELECT * FROM dermagame_dev WHERE email='$email'";
         //return ip address
-        $selectipaddresssql = "SELECT * FROM dermagame_dev WHERE ip_address='$externalIp'";
+        $selectipaddresssql = "SELECT * FROM dermagame_dev WHERE ip_address='$ipaddress'";
 
         //initialize the db query set
         $emailresult=mysqli_query($conn,$selectemailsql);
@@ -67,7 +72,7 @@
                         ai_point, draw_point, reward_item, 
                         created_at, ip_address) 
                         VALUES ('$playername','$email',$playerpoint,
-                        $aipoint,$drawpoint,'$rewarditem','$created_at','$externalIp')";
+                        $aipoint,$drawpoint,'$rewarditem','$created_at','$ipaddress')";
 
                         if ($conn->query($insertsql) === TRUE){
                             $_SESSION['success_message'] = 'Thank You For Support Our Contest!';
