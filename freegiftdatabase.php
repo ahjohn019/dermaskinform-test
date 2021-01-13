@@ -43,7 +43,7 @@
 
                 if($wholeresult=mysqli_query($conn,$selectwholesql)){
                     $wholerowcount = mysqli_num_rows($wholeresult);
-                    if($wholerowcount >= 1534){ //1336
+                    if($wholerowcount >= 1540){ //1534
                         $_SESSION['stop_insert'] = 'Reached Maximum 500 Already, Thanks For Joining Us.';
                         header("location: freegift_form.php");
                     } else {

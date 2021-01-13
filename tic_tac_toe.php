@@ -127,7 +127,7 @@
                     <?php } ?>
 
                     <form action="tic_tac_toe.php" method="post">
-                        <input type="submit" value="Home" />
+                        <input id="backBtn" type="submit" value="Home" class="dermaButton" />
                     </form>
             </div>
         </div>

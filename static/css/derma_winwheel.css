@@ -1,0 +1,30 @@
+#wheelContainer{
+    position:relative;
+    width:300px;
+}
+
+#myCanvas{
+    z-index:1;
+}
+
+#winPointer{
+    position:absolute;
+    left:490px;
+    top:155px;
+    z-index:999;
+}
+
+.border .box-sample{
+    padding-top:30px;
+    padding-bottom:10px;
+    background-color: 	rgb(245,245,245);
+    box-shadow: 0 10px 6px -6px #777;
+}
+
+.derma-logo{
+    width:20%;
+    height:50%;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
