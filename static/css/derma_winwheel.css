@@ -5,17 +5,43 @@
 
 #myCanvas{
     z-index:1;
+    margin-left:350px;
 }
 
 #winPointer{
     position:absolute;
-    left:490px;
-    top:155px;
+    left:640px;
+    top:10px;
     z-index:999;
 }
 
+#wheellucksubmit{
+    padding: 15px 25px;
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+    width:50%;
+    display: block;
+    margin-left: auto;
+    margin-right:auto;
+}
+
+#wheellucksubmit:hover {background-color: #3e8e41}
+
+#wheellucksubmit:active {
+  background-color: #325533;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
 .border .box-sample{
-    padding-top:30px;
+    padding-top:10px;
     padding-bottom:10px;
     background-color: 	rgb(245,245,245);
     box-shadow: 0 10px 6px -6px #777;
@@ -27,4 +53,29 @@
     display:block;
     margin-left:auto;
     margin-right:auto;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left:0;
+    top:0;
+    width: 100%;
+    height:100%;
+    overflow:auto;
+    background-color: black; /* fallback color */
+    background-color: rgba(0, 0, 0, 0.6);
+}
+/*modal content*/
+.modal-content{
+    margin:13% auto;
+    padding:20px;
+    max-width:30%;
+    height:60%;
+    box-shadow: inset 0 0 10px #000000;
+}
+
+#luckywheelDlg h5{
+    text-align: center;
 }

@@ -1,0 +1,112 @@
+
+.derma-formcontainer{
+    background-color: #f3f3f3;
+}
+
+.column{
+    display:flex;
+}
+
+.derma-halfcolumn{
+    padding:16px 14px;
+    width:50%;
+}
+
+
+.derma-formcontainer{
+    padding:10px 15% 15px 15%;
+    box-shadow: 3px 3px 5px 6px #ccc;
+    width:100%;
+}
+
+.derma-formcontainer input{
+    border: 0;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: inherit;
+    height: 45px;
+    clear: left;
+    padding:16px 10px;
+}
+
+.derma-formcontainer label{
+    font-size: 20px;
+    font-weight:300;
+}
+.derma-formcontainer h1{
+    text-align:center;
+}
+
+.derma-formsubtitle{
+    font-size:22px;
+    text-align:center;
+}
+
+.derma-alertmessages{
+    padding:16px 10px;
+    font-size:14px;
+}
+
+.terms-conditions{
+    padding-top:15px;
+    padding-bottom:15px;
+}
+
+.form-check-label{
+    position:relative;
+    top:6px;
+    margin-left:6px;
+    margin-right:6px;
+}
+
+.biretix_banner{
+    width:100%;
+    height:40%;
+}
+
+.imgselection{
+    width:100%;
+    height:100%;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left:0;
+    top:0;
+    width: 100%;
+    height:100%;
+    overflow:auto;
+    background-color: black; /* fallback color */
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+/*modal content*/
+.modal-content{
+    margin:13% auto;
+    padding:20px;
+    max-width:40%;
+    height:70%;
+    top:-70px;
+    box-shadow: inset 0 0 10px #000000;
+}
+
+.img-content{
+    padding:16px 14px;
+    width:50%;
+    border:1px solid lightgray;
+    margin:20px;
+    border-radius: 5%;
+}
+
+.img-content-box-text{
+    position:absolute;
+    width:30%;
+    margin:-5px 2px;
+}
+
+.img-content-box-text:hover{
+    cursor:pointer;
+}
+

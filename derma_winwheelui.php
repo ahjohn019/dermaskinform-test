@@ -4,21 +4,26 @@
     <title>Dermaskinshop Lucky Draw Wheel</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <script type="text/javascript" src="Winwheel.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script type="text/javascript" src="static/js/dermawheel_dev.js"></script>
     
     <link rel="stylesheet" href="static/css/derma_winwheel.css">
 </head>
 
-    <body>
-            <div class="border">
-                <div class="box-sample">
-                     <img src="static/assets/dermaskinshop-Logo-Color.png" alt="" class="derma-logo">
-                </div>
+    <body onload="initialize()">
+        <div class="border">
+            <div class="box-sample">
+                <img src="static/assets/dermaskinshop-Logo-Color.png" alt="" class="derma-logo">
             </div>
+        </div>
         <div id="wheelContainer">
-            <canvas id='myCanvas' width='1024' height='768'>
+            <canvas id='myCanvas' width='640' height='480'>
                 Canvas not supported, use another browser.
             </canvas>
             <img src="static/assets/derma_winpointer.png" id="winPointer" />
@@ -27,6 +32,16 @@
             <button onClick="resetWheel();">Reset</button>
         </div>
 
+        <!--Lucky Wheel Options Dialog-->
+        <div id="luckywheelDlg" class="modal">
+            <div class="modal-content">
+                <h5>Spin The Wheel For Your Chance To Get Some Goodies</h5>
+                <label for="email">Email : </label>
+                <input type="text">
+                <br />
+                <button id="wheellucksubmit" type="submit">Try Your Luck!</button>
+            </div>
+        </div>
 
         <script>
             let theWheel = new Winwheel({
@@ -36,8 +51,8 @@
                 'rotationAngle': -30,
                 'segments'    :
                 [
-                    {'fillStyle' : '#eae56f', 'text' : 'Voucher\nRM50'},
-                    {'fillStyle' : '#89f26e', 'text' : 'Voucher\nRM100','size':40},
+                    {'fillStyle' : '#eae56f', 'text' : 'Voucher\nRM50', size:50},
+                    {'fillStyle' : '#89f26e', 'text' : 'Voucher\nRM100','size':30},
                     {'fillStyle' : '#7de6ef', 'text' : 'Voucher\nDiscount 20%'},
                     {'fillStyle' : '#e7706f', 'text' : 'Voucher\nDiscount 40%', size:30},
                     {'fillStyle' : '#e7706f', 'text' : 'No Prize'}
@@ -91,6 +106,7 @@
                 document.getElementById("spin_button").disabled = false;
                 wheelSpinning = false;          // Reset to false to power buttons and spin can be clicked again.
             }
+            
         </script>
     </body>
 
