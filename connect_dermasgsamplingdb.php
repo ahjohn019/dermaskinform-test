@@ -60,7 +60,6 @@
 
                         if ($conn->query($sql) === TRUE) {
                             $_SESSION['success'] = 'Created Successfully !';
-                            sleep(30);
                             header("location: derma_sgsamplingform.php");
                         } else {
                             echo "Error: " . $sql . "<br>" . $conn->error;
