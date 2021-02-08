@@ -8,4 +8,14 @@ window.onclick = function(evt){
 
 function chooseItem(){
     document.getElementById("rewardWinMessage").style.display = "block";
+
+}
+
+function onSelect(){
+    //if checked box checked, redeem text will display on images
+    var text = "";
+    $('input[name="derma_select_item[]"]:checked').each(function() {
+        text += $(this).val() + ',';
+    });
+    console.log(text);
 }

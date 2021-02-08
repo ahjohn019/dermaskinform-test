@@ -34,6 +34,8 @@
 
         //select email data from db
         $selectemailsql = "SELECT * FROM freegift_sgform WHERE email='$email'";
+        //limit database in live server db
+        $selectwholesql = "SELECT * FROM freegift_sgform";
 
         if($emailresult=mysqli_query($conn,$selectemailsql)){
             //Return number rows in result set
@@ -44,12 +46,9 @@
                 $_SESSION['email_duplicate'] = "Cannot Input Same Email With Previous One, Please Retry Again.";
                 header("location: derma_sgsamplingform.php");
             } else {
-                //limit database in live server db
-                $selectwholesql = "SELECT * FROM freegift_sgform";
-
                 if($wholeresult=mysqli_query($conn,$selectwholesql)){
                     $wholerowcount = mysqli_num_rows($wholeresult);
-                    if($wholerowcount >= 1){ //1534
+                    if($wholerowcount >= 500){ //1534
                         $_SESSION['stop_insert'] = 'Reached Maximum 500 Already, Thanks For Joining Us.';
                         header("location: derma_sgsamplingform.php");
                     } else {
@@ -61,6 +60,7 @@
 
                         if ($conn->query($sql) === TRUE) {
                             $_SESSION['success'] = 'Created Successfully !';
+                            sleep(30);
                             header("location: derma_sgsamplingform.php");
                         } else {
                             echo "Error: " . $sql . "<br>" . $conn->error;

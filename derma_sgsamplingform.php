@@ -23,7 +23,7 @@
             <?php if(isset($_SESSION['email_duplicate'])) { ?>
                 <div class="alert alert-danger"><?php echo $_SESSION['email_duplicate'] ?></div>
             <?php unset($_SESSION['email_duplicate']); }?>
-            
+
             
             <img src="static/assets/biretix_banner.jpg" alt="" class="biretix_banner">
             <h1>Registration</h1>
@@ -98,16 +98,19 @@
                         <strong>Agree to terms and conditions</strong>
                         </label>
                         <p>I agree to the processing of my personal data in accordance with <a href="https://dermaskinshop.com.my/privacy-policy">Privacy policy</a>.</p>
+                    
                     </div>
-                    </div>
+                    </div>                 
+                    <button type="button" class="btn btn-primary" onclick="chooseItem()" style="position:absolute; left:50%;">Choose Items</button>                 
                 </div>
 
                 <div id="rewardWinMessage" class="modal">
                     <div class="modal-content">
-                        <p style="text-align:center;">Please Select Your Welcome Gift</p>    
+                        <p style="text-align:center;">Please Select Your Welcome Gift</p>   
                         <div class="column">
                             <div class="img-content" >
                                 <img src="static/assets/exv_vespera_thumbnails.png" alt="" class="imgselection">
+                                <div id="selection_one" class="img-content-redeem" value="exuviance_vespera">REDEEM</div>
                                 <div class="img-content-box-text">
                                     <p style="text-align:center;">
                                         <input type="checkbox" name="derma_select_item[]" value="exuviance_vespera">
@@ -117,6 +120,8 @@
                             </div>
                             <div class="img-content">
                                 <img src="static/assets/exuviancesample-removebg.png" alt="" class="imgselection">
+                                <div id="selection_two" class="img-content-redeem" value="exuviance_clay_masque">REDEEM</div>
+                                <div class="img-content-redemption"></div>
                                 <div class="img-content-box-text">
                                     <p style="text-align:center;">
                                         <input type="checkbox" name="derma_select_item[]" value="exuviance_clay_masque"> 
@@ -124,12 +129,14 @@
                                     </p>
                                 </div>
                             </div>
+
+                            <!-- <div class="img-content-redemption"></div> -->
                         </div>
-                        <button type="submit" class="btn btn-primary" name="save" >Sign Up</button>
+                        <button onclick="onSelect()" type="submit" class="btn btn-primary" name="save" style="position:relative;left:42%;">Sign Up</button>
                     </div>
                 </div>
             </form>
-                <button type="submit" class="btn btn-primary" onclick="chooseItem()" style="position:absolute; left:50%;">Choose Items</button>
+                <!-- <button type="submit" class="btn btn-primary" onclick="chooseItem()" style="position:absolute; left:50%;">Choose Items</button> -->
         </div>
     </div>
 

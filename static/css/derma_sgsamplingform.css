@@ -14,7 +14,7 @@
 
 
 .derma-formcontainer{
-    padding:10px 15% 15px 15%;
+    padding:15px 15% 35px 15%;
     box-shadow: 3px 3px 5px 6px #ccc;
     width:100%;
 }
@@ -98,11 +98,22 @@
     border:1px solid lightgray;
     margin:20px;
     border-radius: 5%;
+    position:relative;
+}
+
+
+
+.img-content-redeem{
+    position: absolute; 
+    text-align:center; 
+    top:30px; 
+    width:100%; 
+    left:0;
+    display:none;
 }
 
 .img-content-box-text{
     position:absolute;
-    width:30%;
     margin:-5px 2px;
 }
 
