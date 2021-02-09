@@ -110,7 +110,7 @@
                         <div class="column">
                             <div class="img-content" >
                                 <img src="static/assets/exv_vespera_thumbnails.png" alt="" class="imgselection">
-                                <div id="selection_one" class="img-content-redeem" value="exuviance_vespera">REDEEM</div>
+                                <div id="exuviance_vespera" class="img-content-redeem" value="exuviance_vespera">REDEEM</div>
                                 <div class="img-content-box-text">
                                     <p style="text-align:center;">
                                         <input type="checkbox" name="derma_select_item[]" value="exuviance_vespera">
@@ -120,7 +120,7 @@
                             </div>
                             <div class="img-content">
                                 <img src="static/assets/exuviancesample-removebg.png" alt="" class="imgselection">
-                                <div id="selection_two" class="img-content-redeem" value="exuviance_clay_masque">REDEEM</div>
+                                <div id="exuviance_clay_masque" class="img-content-redeem" value="exuviance_clay_masque">REDEEM</div>
                                 <div class="img-content-redemption"></div>
                                 <div class="img-content-box-text">
                                     <p style="text-align:center;">
